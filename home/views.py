@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from datetime import datetime
 from django.template import Context, Template, loader
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import random
 
 from home.models import Humano
@@ -48,17 +48,28 @@ def prueba_template(request):
 
     return HttpResponse(template_renderizado)
 
-def home_persona(request, nombre, apellido):
+# def home_persona(request, nombre, apellido):
 
-    persona = Humano(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_nacimiento=datetime.now())
-    persona.save()
+    # persona = Humano(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_nacimiento=datetime.now())
+    # persona.save()
+def home_persona(request):
+
+    if request.method == 'POST':
+    # print('POST')
+    # print(request.POST)
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        persona = Humano(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_creacion=datetime.now())
+        persona.save()
+
+        return redirect('ver_personas')
 
     # template = loader.get_template('home/home_persona.html')
     # template_renderizado = template.render({'persona': persona})
 
     # return HttpResponse(template_renderizado)
 
-    return render(request, 'home/home_persona.html', {'persona': persona})
+    return render(request, 'home/home_persona.html', {})
 
 def ver_personas(request):
 
@@ -66,7 +77,6 @@ def ver_personas(request):
 
     # template = loader.get_template('home/ver_personas.html')
     # template_renderizado = template.render({'personas': personas})
-
     # return HttpResponse(template_renderizado)
  
     return render(request, 'home/ver_personas.html', {'personas': personas})
