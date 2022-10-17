@@ -7,3 +7,7 @@ class HumanoFormulario(forms.Form):
     edad = forms.IntegerField()
     fecha_creacion = forms.DateField(required=False)
     # requiered=false de arriba sirve para que el campo no sea requerido para que si o si se complete
+
+
+class BusquedaHumanoFormulario(forms.Form):
+    nombre = forms.CharField(max_length=30, required=False)

@@ -5,13 +5,26 @@
 {% endblock title_pagina %}
 
 {% block mi_contenido  %}
-
 {% comment %} Esta oracion de abajo sirve para que se agregue un hypervinculo que te lleve al Inicio. En este caso Index {% endcomment %}
-<a class="navbar-brand" href={% url 'index' %}>Index</a>
+<a class="navbar-brand" href={% url 'home_persona' %}>Crear Persona</a>
 <p>Listado de Personas:</p>
-{% for persona in personas  %}
-   <li>{{persona.nombre}} {{persona.apellido}} {{persona.edad}}</li>
-{% endfor %}
-{% comment %} Por si se rompe algo, eliminar persona.edad de el renglon 6 {% endcomment %}
+
+<form action={% url 'ver_personas' %} method="GET">
+      {{formulario}} 
+      <button>Buscar</button>
+</form>
+<p>
+   {% if personas %}
+
+      {% for persona in personas  %}
+      <li>{{persona.nombre}} {{persona.apellido}} {{persona.edad}}</li>
+      {% endfor %}
+      {% comment %} Por si se rompe algo, eliminar persona.edad de el renglon de arriba {% endcomment %}
+
+   {% else %}
+   <p>No hay usuarios con ese ID. Intentelo nuevamente.</p>
+   {% endif %}
+
+</p>
 
 {% endblock mi_contenido  %}

@@ -11,6 +11,11 @@
 {% block mi_contenido %}
 <form action={% url 'home_persona' %} method="POST">
     {% csrf_token %}
+    <table>
+        {{formulario}} 
+    </table>
+
+{% comment %} Esto que esta todo comentado se vio en la clase 20
     <p>
         Nombre:
         <input type="text" name='nombre' placeholder="Nombre">
@@ -18,7 +23,7 @@
     <p>
         <label for="apellido">Apellido:</label>
         <input type="text" name='apellido' placeholder="Apellido">
-    </p>
+    </p> {% endcomment %}
 {% comment %} Tres formas de crear botones {% endcomment %}
 {% comment %} <input type="button" value="Crear"> {% endcomment %}
 {% comment %} <input type="submit" value="Crear"> {% endcomment %}

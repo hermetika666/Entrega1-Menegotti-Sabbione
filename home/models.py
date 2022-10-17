@@ -5,7 +5,7 @@ class Humano(models.Model):
     apellido = models.CharField(max_length=30)
     edad = models.IntegerField()
     fecha_creacion = models.DateTimeField(null=True)
-    # Le pusimos null=true para que pueda venir vacio
+    # Le pusimos (null=True) para que pueda venir vacio
    
 #    Para que se muestren los nombre de las personas bien en la URL y no como ID Objeto
 
