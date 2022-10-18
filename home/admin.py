@@ -1,6 +1,6 @@
 from django.contrib import admin
-from home.models import Humano
+from home.models import Libreria
 
 # Register your models here.
 
-admin.site.register(Humano)
+admin.site.register(Libreria)

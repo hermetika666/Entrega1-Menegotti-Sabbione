@@ -1,0 +1,28 @@
+{% extends 'home/base.html' %}
+
+{% block title_pagina  %} 
+<title>Ventas del Mes</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido  %}
+{% comment %} Esta oracion de abajo sirve para que se agregue un hypervinculo que te lleve al Inicio. En este caso Index {% endcomment %}
+<a class="navbar-brand" href={% url 'home_libreria' %}>Ingresar Nueva Venta</a>
+<p></p>
+<form action={% url 'home_libreria' %} method="GET">
+      {{formulario}} 
+      <button>Buscar</button>
+</form>
+<p>
+   {% if libros %}
+
+      {% for libro in libros  %}
+      <li>{{libro.titulo}} {{libro.genero}} {{libro.mes_venta}}</li>
+      {% endfor %}
+      
+   {% else %}
+   <p>No hay ventas registradas con el titulo especificado. Intentelo nuevamente.</p>
+   {% endif %}
+
+</p>
+
+{% endblock mi_contenido  %}
