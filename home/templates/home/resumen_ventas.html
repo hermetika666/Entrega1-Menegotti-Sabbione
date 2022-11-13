@@ -6,7 +6,7 @@
 
 {% block mi_contenido  %}
 {% comment %} Esta oracion de abajo sirve para que se agregue un hypervinculo que te lleve al Inicio. En este caso Index {% endcomment %}
-<a class="navbar-brand" href={% url 'nueva_venta' %}><button>Volver a ingresar una nueva venta</button></a>
+<a class="navbar-brand" href={% url 'nueva_venta' %}><button>Ingresar una Nueva Venta</button></a>
 <p></p>
 <form action={% url 'nueva_venta' %} method="GET">
       {{formulario}} 

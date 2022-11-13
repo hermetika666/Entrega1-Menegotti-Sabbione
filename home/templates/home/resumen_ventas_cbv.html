@@ -7,20 +7,21 @@
 {% block mi_contenido  %}
 {% comment %} Esta oracion de abajo sirve para que se agregue un hypervinculo que te lleve al Inicio. En este caso Index {% endcomment %}
 <p></p>
-<a class="navbar-brand" href={% url 'nueva_venta' %}><button>Volver a ingresar una nueva venta</button></a>
+<a class="navbar-brand" href={% url 'nueva_venta' %}><button>Ingresar Venta Nueva</button></a>
 <p></p>
-{% comment %} <form action={% url 'nueva_venta' %} method="GET">
+<form action={% url 'resumen_ventas' %} method="GET">
       {{formulario}} 
       <button>Buscar</button>
-</form> {% endcomment %}
+</form>
 <p>
    {% if object_list %}
 
       {% for libro in object_list %}
       {% comment %} <li>{{libro.titulo}} {{libro.genero}} {{libro.mes_venta}}</li> {% endcomment %}
          <li> 
-            {{libro}}
-            <a class="navbar-brand" href={% url 'editar_venta' libro.id %}><button>Editar Ingreso</button></a>
+            {% comment %} {{libro}} {% endcomment %}
+            <a class="navbar-brand" href={% url 'ver_venta' libro.id %}>{{libro}}</a>
+            <a class="navbar-brand" href={% url 'editar_venta' libro.id %}><button>Editar Venta</button></a>
             <a class="navbar-brand" href={% url 'eliminar_venta' libro.id %}><button>Eliminar Registro</button></a>
          </li>
       {% endfor %} 

@@ -1,0 +1,15 @@
+{% extends 'home/base.html' %}
+
+{% block title_pagina  %} 
+<title>Venta</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido  %}
+<p>
+    <li> Titulo: {{libreria.titulo}} </li>
+    <li> Genero: {{libreria.genero}} </li>
+    <li> Fecha de Venta: {{libreria.mes_venta}} </li>
+    <li> Descripción: {{libreria.descripcion | safe}} </li>
+
+</p>
+{% endblock mi_contenido  %}
