@@ -1,0 +1,17 @@
+{% extends 'home/base.html' %}
+
+{% block title_pagina  %}
+<title>Editar Venta</title>
+{% endblock title_pagina  %}
+
+{% block mi_contenido %}
+
+<form action={% url 'editar_venta' libreria.id %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{formulario}} 
+    </table> 
+<button>Editar</button>
+</form>
+ 
+{% endblock mi_contenido %}

@@ -1,0 +1,15 @@
+{% extends 'home/base.html' %}
+
+{% block title_pagina  %}
+<title>Eliminar Registro</title>
+{% endblock title_pagina  %}
+
+{% block mi_contenido %}
+<form action={% url 'eliminar_venta' libreria.id %} method="POST">
+    {% csrf_token %}
+    <p>
+        Desea eliminar este registro de venta {{libreria}}?
+    </p>
+    <button>Confirmar</button>
+</form>
+{% endblock mi_contenido %}

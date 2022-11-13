@@ -6,12 +6,14 @@
 
 {% block mi_contenido %}
 
-<form action={% url 'home_libreria' %} method="POST">
+<form action={% url 'nueva_venta' %} method="POST">
     {% csrf_token %}
+<p></p>
     <table>
-        {{formulario}} 
+        {{form}} 
     </table>
+<p></p>
 <button>Crear</button>
 </form>
-
+<p></p>
 {% endblock mi_contenido %}
