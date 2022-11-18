@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
-# Este login de arriba lo brinda Django y el de abajo 'mi_login' es el creado x mi
 from accounts.forms import MiFormularioCreacion, EditarPerfilFormulario, CambiaPasswrd
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin

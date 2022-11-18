@@ -4,7 +4,6 @@ from ckeditor.fields import RichTextField
 class Libreria(models.Model):
     titulo = models.CharField(max_length=30)
     genero = models.CharField(max_length=30)
-    # mes_venta = models.CharField(max_length=30)
     mes_venta = models.DateField()
     descripcion = RichTextField(null=True)
     
