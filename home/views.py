@@ -58,4 +58,4 @@ class EliminarVenta(LoginRequiredMixin, DeleteView):
 class VerVenta(DetailView):
     model = Libreria
     template_name = 'home/ver_venta_cbv.html'
- 
+    
